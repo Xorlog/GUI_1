@@ -1,0 +1,157 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*
+        File: default.css
+        91.461 Assignment 3: Styling Your First Web Page With CSS
+        Peter Maniatis Peter_Maniatis@Student.uml.edu
+        Created 9/21/2015
+        Last updated 9/22/2015
+
+*/
+		
+		/*Set the background color, image, and image position*/
+		body{
+			background-color:#000000; /* Black background */
+            background-image: url("../img/UMass-Lowell-logo2.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-position: 50% 50%;  /* keep it in the center even when window is resized */
+            font-family: "Calibri";
+		}
+
+		
+
+		/*
+        * Set up size the main header image
+        * Added height to scale the width, and added max width and height
+        * to scale the entire thing when the page is resized.
+        */
+		h1 img {
+            position:static;
+            height:75px;
+            max-width:100%;
+            max-height: 100%;
+		}
+
+		
+		/* 
+		* Some default behavior for links and list items inside the menu.
+        * Change link color to make them easier to see against the blue menu items.
+        * Wanted to keep them blue to help users identify them as links.
+		* Hide nested lists by default.
+		* Set the border around nested list items.
+		* Change background color of list items when you hover over them.
+		*
+		*/
+		a:link{
+            text-decoration: underline;
+            color:#7ba4ff; /* light blue for links */
+		}
+		
+		ul ul{
+            position:relative;
+			display: none;
+            z-index: 1;
+		}
+		
+		ul ul li{
+			border-style:groove;
+			border-radius: 0;
+			width: 125px;    
+			border-top-width: 2.5px;
+			border-bottom-width: 2.5px;
+            z-index: 1;
+		}
+
+		ul li:hover{
+			background:    linear-gradient(#1a578e, #132b41);  /* blue at the top, darker at the bottom.  Darker than default ul li */ 
+            z-index: 1;
+		}
+		
+
+		
+		/*
+		* Set up the main navigation menu and align it under the main header.
+		* Set up the border, font, font color, font size, and gradiant background shading.
+		* Make it so hovering over lists with children will cause them to reappear.
+		*/
+		nav{
+			margin-top: -15px;
+			margin-bottom: 125px;
+			margin-right: 0px;
+			margin-left: 0px;
+            z-index: 1;
+		}
+		
+		nav ul li{
+            display: inline-block;
+            border-style: groove;
+            float: left;
+            width: 200px;
+            height: 50px;
+            background: linear-gradient(#3d85c6, #073763); /* Darker blue at bottom, lighter at the top*/
+            border-radius: 5px;
+            color: #fff;
+            font: normal 700 25px/50px "Calibri", sans-serif;
+            text-align: center;
+            z-index: 1;
+
+		}
+	
+		nav ul li:hover > ul  {
+			display: block;
+		}
+
+		
+
+
+
+		/*
+		* Position for the Morpheus quote.
+        * on the Home page.
+		*/
+		#quote{
+			margin-left:100px;
+			width: 300px;
+			height: auto;
+		}
+		
+		#quote a{
+            position: relative; 
+			padding-left:165px
+		}
+		
+
+
+        /*
+        * This is the main style of our paragraph text.  We want the width to be set max
+        * at 650px to give us plenty of viewing room and the height at auto.  This way we aren't 
+        * limited in how much text we can have.  
+        *
+        * Also, set max height & width so the text area resizes when the window size changes.  
+        */
+        p{
+            margin-left:15px;
+            position: absolute;
+            float:left;
+            font-size: 20px;
+            color:floralwhite;
+            z-index: 0;
+            width: 650px;
+            height: auto;
+            max-width:100%;
+            max-height: 100%;
+        }
+
+
+        /* Position of W3 validation image and link */
+        footer {
+            position:fixed;
+            left: 0;
+            bottom: 0;
+            height: 100px;
+            width: 100%;
+        }
+		

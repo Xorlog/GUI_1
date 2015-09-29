@@ -1,0 +1,115 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*
+        File: Assignment_2.css
+        91.461 Assignment 2: Creating Your First Web Page
+        Peter Maniatis Peter_Maniatis@Student.uml.edu
+        Created 9/8/2015
+        Updated 9/22/15
+            --  Separated the Assignment 2 index into a separate page. 
+                Also converted the previous assignment 2 default.css file 
+                into a separate assignment2.css file to showcase the style changes.
+*/
+		
+		/*Set the background color for the entire page*/
+		body{
+			background-color:#C0C0C0;
+		}
+
+		
+		/*Set up and position the main header*/
+		h1{
+			border-style:solid;
+			border-width:2px;
+			background-color:#00CC33;
+			margin: 0px;
+			padding: 0px;
+			width: 30%;
+			text-align: center;
+		}
+
+		
+		/* 
+		* Some default behaviour for links and list items inside the menu.
+		* Remove link underline.
+		* Hide nested lists by default.
+		* Set the border around nested list items.
+		* Change background color of list items when you hover over them.
+		*
+		*/
+		a:link{
+			text-decoration: none;
+		}
+		
+		ul ul{
+			display: none;
+		}
+		
+		ul ul li{
+			border-style:groove;
+			border-radius: 0;
+			width: 125px;
+			border-top-width: 2.5px;
+			border-bottom-width: 2.5px;
+		}
+
+		ul li:hover{
+			background-color:#707070;
+		}
+		
+
+		
+		/*
+		* Set up the main navigation menu.
+		* Align it under the main header.
+		* Set up the border and font sizes.
+		* Make it so hovering over lists with 
+		* children will cause them to reappear.
+		*/
+		nav{
+			margin-top: -15px;
+			margin-bottom: 150px;
+			margin-right: 0px;
+			margin-left: 125px;
+		}
+		
+		nav ul li{
+			margin: 0px;
+			border-style:groove;
+			display: inline;
+			float: left;
+			padding: 0;
+			border-radius: 25px;
+			width: 120px;
+			height: 20px;
+			text-align: center;
+			font-size:18px;
+		}
+	
+		nav ul li:hover > ul  {
+			display: block;
+		}
+
+		
+        p {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            left: 150px;
+        }
+
+
+
+        /* Position of W3 validation image and link */
+        footer {
+            margin-left:15px;
+            margin-bottom: -37px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 100px;
+            width: 100%;
+        }
+
+		
