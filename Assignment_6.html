@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<!--
+        File: Assignment_5.html
+        91.461 Assignment No. 5: Formatting Dynamic Text
+        Peter Maniatis Peter_Maniatis@Student.uml.edu
+        Created 10/5/15
+ -->
+
+
+
+<html>
+	<head>
+        <meta charset="utf-8">
+        <!-- css for this page -->
+        <link type="text/css" rel="stylesheet" href="css/default.css">
+
+        <title>Peter Maniatis GUI 1</title>
+
+        <script type="application/javascript">
+            function createMult(){
+
+                // get all of our start and end numbers.
+                num1Start = parseInt(document.getElementById("num1Start").value);
+                num1End = parseInt(document.getElementById("num1End").value);
+                num2Start = parseInt(document.getElementById("num2Start").value);
+                num2End = parseInt(document.getElementById("num2End").value);
+                
+                // if any of the entries aren't integers.
+                if( !(   isInt(num1Start) 
+                      && isInt(num1End) 
+                      && isInt(num2Start) 
+                      && isInt(num2End)
+                     ))
+                {
+                    newTable = "<p> Please enter integers only </p> ";
+                    document.getElementById("multContent").innerHTML = newTable;
+                    return false;
+                }
+                
+                checkOrder();
+                
+                // variable that will hold our new content.
+                var newTable = "<table>";
+
+                // Create the top row
+                newTable += "<tr> <td> &nbsp; </td>";
+                for(var topRow = num1Start; topRow <= num1End; topRow++){
+                    newTable += "<td>" + topRow + "</td>";
+                }
+                newTable += "</tr>";
+
+
+                // Create the rest of the table
+                for(var rows = num2Start; rows <= num2End; rows++){
+                    newTable += "<tr>";
+                    for(var cols = num1Start; cols <= num1End; cols++){
+                        if(cols == num1Start){
+                            newTable += "<td>" + rows + "</td>";
+                        }
+                            newTable += "<td>" + cols * rows + "</td>";
+                    }
+                    newTable += "</tr>";
+                }
+
+                // Add the table to our multContent placeholder.
+                document.getElementById("multContent").innerHTML = newTable;
+            }
+            
+            function isInt(n){
+                return Number(n) === n && n % 1 === 0;
+            }
+            
+            function checkOrder(){
+                if(num1End < num1Start){
+                    var tmp = num1End;
+                    num1End = num1Start;
+                    num1Start= tmp;
+                }
+                
+                if(num2End < num2Start){
+                    var tmp = num2End;
+                    num2End = num2Start;
+                    num2Start= tmp;
+                }
+            }
+            
+            
+        </script>
+       
+	</head>
+	
+	
+	<body>
+	
+		<!-- 
+		 This is the main menu.  Basic idea from http://line25.com/tutorials/how-to-create-a-pure-css-dropdown-menu 
+		 heavily modified from original 
+		 -->
+
+		<h1> 
+            <img src="img/logo_transparent.gif" alt="Peter Maniatis GUI 1">
+        </h1>
+		<nav>
+			<ul id="menu">
+				<li><a href="index.html">Home</a></li>
+				<li><a>Assignments</a>
+					<ul>
+						<li><a href="Assignment_2.html">Assignment 2</a></li>
+						<li><a href="Assignment_3.html">Assignment 3</a></li>
+                        <li><a href="Assignment_5.html">Assignment 5</a></li>
+                        <li><a href="Assignment_6.html">Assignment 6</a></li>
+                        <li><a href="Assignment_7.html">Assignment 7</a></li>
+
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	
+    
+
+      <form id="multForm" onsubmit ="createMult(); return false;"  method="post">
+            Multiplier Start:<br> <input id="num1Start" type="text" name="num1Start" value=""><br>
+            Multiplier End:<br> <input id="num1End" type="text" name="num1End" value=""><br>
+            Multiplicand Start:<br> <input id="num2Start" type="text" name="num2Start" value=""><br>
+            Multiplicand End:<br> <input id="num2End" type="text" name="num2End" value=""><br><br>
+            <input type="submit" value="Submit">
+      </form>    
+    
+        <div id="multContent"><div>
+        
+        
+        <footer>
+            <p>
+                <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                    <img style="border:0;width:88px;height:31px;float:left;"
+                         src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+                         alt="Valid CSS!" />
+                </a>
+            </p>
+        </footer>        
+
+        
+	</body>
+
+</html>
+

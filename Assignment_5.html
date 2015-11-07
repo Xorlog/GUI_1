@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<!--
+        File: Assignment_5.html
+        91.461 Assignment No. 5: Formatting Dynamic Text
+        Peter Maniatis Peter_Maniatis@Student.uml.edu
+        Created 10/5/15
+ -->
+
+
+
+<html>
+	<head>
+	<meta charset="utf-8">
+	
+	<!-- css for this page -->
+	<link type="text/css" rel="stylesheet" href="css/Assignment_5.css">
+        
+	<title>Peter Maniatis GUI 1</title>
+	</head>
+	
+	
+	<body>
+	
+		<!-- 
+		 This is the main menu.  Basic idea from http://line25.com/tutorials/how-to-create-a-pure-css-dropdown-menu 
+		 heavily modified from original 
+		 -->
+
+		<h1> 
+            <img src="img/logo_transparent.gif" alt="Peter Maniatis GUI 1">
+        </h1>
+		<nav>
+			<ul id="menu">
+				<li><a href="index.html">Home</a></li>
+				<li><a>Assignments</a>
+					<ul>
+						<li><a href="Assignment_2.html">Assignment 2</a></li>
+						<li><a href="Assignment_3.html">Assignment 3</a></li>
+                        <li><a href="Assignment_5.html">Assignment 5</a></li>
+                        <li><a href="Assignment_6.html">Assignment 6</a></li>
+                        <li><a href="Assignment_7.html">Assignment 7</a></li>
+
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	
+            
+        <!--
+            Main text of the page
+            Original code from Professor Heines 
+            https://teaching.cs.uml.edu/~heines/91.461/91.461-2015-16f/461-assn/FormattingText-v05.jsp
+        -->   
+        
+        <!--
+          load jQuery library from the Google Content Delivery Network (CDN)
+          see http://encosia.com/3-reasons-why-you-should-let-google-host-jquery-for-you/
+          however, note that you obviously must be online for this to work
+          alternatively, you can download jQuery and store it locally from
+             http://jquery.com/download/
+        -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+        <!-- load the JSON file containing the text of Lincoln's Gettysburg address -->
+        <script type="text/javascript">
+          // this function will run after the body has been loaded
+          jQuery(document).ready( function() {
+            jQuery.get( "LOTR.json", function( data ) {
+              placeContent( data ) ;  // construct output from the data read
+            }, "json" );  // be sure to include this third parameter for weblab.cs.uml.edu
+          });
+        </script>
+
+        
+        
+        
+        <!-- script to place JSON text in the placeholder on this page -->
+        <script type="text/javascript">
+          // N.B.  This version *does* apply the CSS.
+          function placeContent( story ) {
+            var strContent = "";
+
+            // create dynamic content from JSON
+            strContent += "<h1 class='Title'>" + story.title + "</h1>" ;
+            strContent += "<h2 class='Author'>by " + story.author + " (" + story.year +")"+ "</h2>" ;
+            strContent += "<h4 class='Prologue'> " + story.text.section.prologue.sName + "</h4>" ;  
+              
+            // loop through all the paragraphs and sentences
+            for ( var para = 0 ; para < story.text.section.prologue.paragraphs.length ; para++ ) {
+                
+              strContent += "<p class='paragraphs'>" ;
+              for ( var sent = 0 ; sent < story.text.section.prologue.paragraphs[para].length ; sent++ ) {
+                strContent += story.text.section.prologue.paragraphs[para][sent] + "&nbsp; " ;
+              }
+              strContent += "</p>" ;
+            }
+
+            // place dynamic content on page
+            // document.getElementById( "content" ).innerHTML = strContent ;
+            $("#content").html( strContent ) ;
+          }
+        </script>
+      
+        
+        <div id="content"></div>    
+    
+        
+
+        
+        
+        <footer>
+            <p>
+                <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                    <img style="border:0;width:88px;height:31px;float:left;"
+                         src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+                         alt="Valid CSS!" />
+                </a>
+            </p>
+        </footer>        
+
+	</body>
+
+</html>
+
