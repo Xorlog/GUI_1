@@ -107,9 +107,6 @@
         if (keepScore){
             totalScore += roundScore;
             $('#totalScore').text("Total Score: " + totalScore);
-            
-        }else{
-            totalScore = 0;
         }
         
         roundScore = 0;
@@ -146,13 +143,13 @@
     // reset the board, all scores and word
     function resetAll() {
         resetBoard(false);
+        totalScore = 0;
         $('#totalScore').text("Total Score: " + totalScore);
     }
 
     // Keep global score but shuffle the letters in the players hand
     function shuffle(){
-        resetBoard(true);
-    
+        resetBoard(false);
     }
 
 
