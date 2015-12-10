@@ -1,9 +1,18 @@
+/*
+        File: Assignment_7.js
+        91.461 Assignment No. 7 Using the jQuery Validation Plugin with Your Dynamic Table
+        Peter Maniatis Peter_Maniatis@Student.uml.edu
+        Created 11/5/2015
+*/
+
+
 
 // Function to validate input and call the table
 // generaion function if it is all valid.
 function createMult( ){
 
     
+    // Make sure we have numbers and they are within the range -15 to 15
     $( '#multForm' ).validate( {
         rules: {
             num1Start :{
@@ -27,6 +36,7 @@ function createMult( ){
                 range: [-15, 15]
             }
         },
+        // Change default error messages.
         messages :{
             num1Start :{
                 required : "*",
@@ -80,6 +90,7 @@ function createMult( ){
             tmpMessage += "Swapping Multiplicand Start and Multiplicand End ";
         }
         
+        // Let the user know we are flipping their numbers
         document.getElementById("Instructions1").innerHTML = tmpMessage;
         tmpMessage = "";
      

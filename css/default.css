@@ -6,8 +6,10 @@
         91.461 Assignment 3: Styling Your First Web Page With CSS
         Peter Maniatis Peter_Maniatis@Student.uml.edu
         Created 9/21/2015
-        Last updated 10/20/2015
+        Last updated 11/5/2015
             - Added support for assignment 6 features.
+            - Added support for assignment 7 features.
+            - Added support for assignment 8 features
 
 */
 		
@@ -167,10 +169,17 @@
             color:floralwhite;
             
         }
+
         #multContent {
             color:floralwhite;
         }
 
+        #subButton{
+            float:inherit;
+        }
+
+
+        /* Notes above and below the multiplication forms */
         #Instructions{
             position: relative;
             float:inherit;
@@ -224,11 +233,71 @@
         }
 
 
-
+        /* Change the error message color to red*/
         label.error{
             color:rgb(255, 0, 0);
         }
 
-        input.error{
+
+        
+        .multFormDivs{
+            width: auto;
+            height:auto;
+        }
+
+
+        /*Slider formatting*/
+        #num1StartSlider,  #num2StartSlider, #num1EndSlider, #num2EndSlider{
+            width: 100px;
+            height: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            float:inherit;
+        }
+
+        #num2EndSlider{
+            margin-top: -10px;
+            margin-bottom: 20px;
             
         }
+
+
+        /*Tab formatting  Remove borders, background image, and set 
+        * the background color to black.
+        */
+        #tabs{
+            position: absolute;
+            left: 500px;
+            top: 175px;
+            background-color: black;
+            background-image: none;
+            border:none;
+        }
+
+
+        /*Make sure the table entries are white*/
+        li[id^=multContent]{
+            color:floralwhite;
+        }
+
+        /*Tabs header*/
+        .ui-widget-header{
+            background-color: black !important  ;
+            background: none !important;
+            border:none !important;
+        }
+
+        /*Override the slider layout*/
+        .ui-slider .ui-slider-handle{
+           width:7px !important;
+           background-size: cover !important;
+	       background-position: center center !important;
+           margin-left:-3px !important;
+           background-color: cornflowerblue !important;
+        }
+
+        .ui-widget-content .ui-state-default { 
+            background: #3d85c6 !important;
+        }
+
+
